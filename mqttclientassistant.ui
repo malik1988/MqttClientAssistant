@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>连接服务器</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout" columnstretch="0,1,0,0">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="text">
+          <string>服务器地址：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEdit_server_ip">
+         <property name="toolTip">
+          <string>服务器地址（域名或者IP地址）</string>
+         </property>
+         <property name="whatsThis">
+          <string>服务器地址（域名或者IP地址）</string>
+         </property>
+         <property name="text">
+          <string>211.152.46.42</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>服务器端口：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLineEdit" name="lineEdit_server_port">
+         <property name="toolTip">
+          <string>服务器端口地址，默认1883</string>
+         </property>
+         <property name="whatsThis">
+          <string>服务器端口地址，默认1883</string>
+         </property>
+         <property name="inputMask">
+          <string>999999</string>
+         </property>
+         <property name="text">
+          <string>1883</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>用户名：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit_user"/>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>密码：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLineEdit" name="lineEdit_pwd"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="pushButton_connect">
+         <property name="toolTip">
+          <string>连接到服务器</string>
+         </property>
+         <property name="text">
+          <string>连接</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string>主题</string>
+      </property>
+      <layout class="QFormLayout" name="formLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>主题：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEdit_topic">
+         <property name="toolTip">
+          <string>主题（可以多个，一行一个）</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>QOS：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit_qos">
+         <property name="toolTip">
+          <string>QOS（0，1，2）</string>
+         </property>
+         <property name="inputMask">
+          <string>9</string>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>发送消息：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="lineEdit_msg_pub">
+         <property name="toolTip">
+          <string>发送消息（仅发布者使用）</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QPushButton" name="pushButton_sub">
+         <property name="toolTip">
+          <string>订阅者订阅主题</string>
+         </property>
+         <property name="text">
+          <string>订阅</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextBrowser" name="textBrowser">
+      <property name="toolTip">
+       <string>接收消息显示区</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton_connect</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_connect_pressed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>120</x>
+     <y>200</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_sub</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_sub_pressed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>69</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>16</x>
+     <y>373</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit_topic</sender>
+   <signal>editingFinished()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_topic_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>197</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>204</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit_qos</sender>
+   <signal>editingFinished()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_topic_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>137</x>
+     <y>198</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>40</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit_msg_pub</sender>
+   <signal>returnPressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_msg_send()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>7</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slot_connect_pressed()</slot>
+  <slot>slot_sub_pressed()</slot>
+  <slot>slot_topic_change()</slot>
+  <slot>slot_msg_send()</slot>
+ </slots>
+</ui>
