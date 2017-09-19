@@ -48,7 +48,9 @@ class MqttClientAssistant(ui_mainwindow, qtbaseclass):
             print("Server Connected!")
             self.is_connected = True
             self.pushButton_sub.setEnabled(True)
+            self.statusbar.showMessage("服务器连接成功！",msecs=5000)
         else:
+            self.statusbar.showMessage("服务器连接失败！")
             print("Server Connect Failed, with result code " + str(rc))
 
     def mqtt_on_message(self, client, userdata, msg):
