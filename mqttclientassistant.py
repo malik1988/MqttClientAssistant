@@ -22,6 +22,7 @@ class MqttClientAssistant(ui_mainwindow, qtbaseclass):
         ui_mainwindow.__init__(parent)
         qtbaseclass.__init__(parent)
         self.setupUi(parent)
+        self.setWindowTitle("MqttClientAssistant - MQTT客户端调试助手")
 
         self.client = mqtt.Client()
         self.client.on_connect = self.mqtt_on_connected
