@@ -5,9 +5,13 @@ import paho.mqtt.client as mqtt
 from datetime import datetime
 
 import os
-uipath, uiname = os.path.split(os.path.realpath(__file__))
-uiname = uiname.replace('.py', '.ui')
-uifile = os.path.join(uipath, uiname)
+import sys
+
+if getattr(sys, 'frozen', False):
+    APP_DIR = sys._MEIPASS
+else:
+    APP_DIR = os.path.dirname(os.path.abspath(__file__))
+uifile = os.path.join(APP_DIR, "mqttclientassistant.ui")
 ui_mainwindow, qtbaseclass = uic.loadUiType(uifile)
 
 

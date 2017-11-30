@@ -13,3 +13,6 @@
 
 ## 截图
 ![screenshot](/screenshot/screenshot.jpg)
+
+##＃　备注
+- 优化交互
